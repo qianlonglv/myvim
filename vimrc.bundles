@@ -2,18 +2,25 @@ set nocompatible
 "config vundle
 filetype off "required! turn off
 set rtp+=~/.vim/bundle/Vundle.vim/
-call vundle#rc()
+call vundle#begin()
+
+Plugin 'gmarik/vundle'
+Plugin 'tomasr/molokai'
+Plugin 'scrooloose/nerdtree'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'tacahiroy/ctrlp-funky'
+Plugin 'vim-scripts/cscope.vim'
+Plugin 'Valloric/YouCompleteMe'
+call vundle#end()
+filetype plugin indent on
 
 
-Bundle 'gmarik/vundle'
 
 "################### 显示增强-主题 ###################"
-Bundle 'tomasr/molokai'
 let g:molokai_original = 1
 
 "################### 快速导航 ###################
 "目录导航
-Bundle 'scrooloose/nerdtree'
 map <leader>n :NERDTreeToggle<CR>
 let NERDTreeHighlightCursorline=1
 let NERDTreeIgnore=[ '\.pyc$', '\.pyo$', '\.obj$', '\.o$', '\.so$', '\.egg$', '^\.git$', '^\.svn$', '^\.hg$' ]
@@ -28,7 +35,6 @@ let g:NERDTreeMapOpenVSplit = 'v'
 
 "################### 自动补全 ###################
 "" 代码自动补全
-Bundle 'Valloric/YouCompleteMe'
 "let g:ycm_key_list_select_completion=['<c-n>']
 let g:ycm_key_list_select_completion = ['<Down>']
 "let g:ycm_key_list_previous_completion=['<c-p>']
@@ -66,7 +72,6 @@ let g:ycm_filetype_blacklist = {
     \}
 
 
-Bundle 'ctrlpvim/ctrlp.vim'
 let g:ctrlp_map = '<leader>p'
 let g:ctrlp_cmd = 'CtrlP'
 map <leader>f :CtrlPMRU<CR>
@@ -83,7 +88,6 @@ let g:ctrlp_match_window_reversed=0
 let g:ctrlp_mruf_max=500
 let g:ctrlp_follow_symlinks=1
 " ctrlp插件1 - 不用ctag进行函数快速跳转
-Bundle 'tacahiroy/ctrlp-funky'
 nnoremap <Leader>fu :CtrlPFunky<Cr>
 " narrow the list down with a word under cursor
 nnoremap <Leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
@@ -91,5 +95,5 @@ let g:ctrlp_funky_syntax_highlight = 1
 
 let g:ctrlp_extensions = ['funky']
 
-Bundle 'vim-scripts/cscope.vim'
+
 

@@ -1,10 +1,14 @@
-set number "开启行号
-syntax on "语法高亮
-
 " install Vundle bundles
 if filereadable(expand("~/.vimrc.bundles"))
    source ~/.vimrc.bundles
 endif
+
+let mapleader = ','
+let g:mapleader = ','
+
+
+set number "开启行号
+syntax on "语法高亮
 
 set autoindent "自动缩进
 set smartindent   " Smart indent
@@ -111,8 +115,6 @@ noremap <silent><leader>/ :nohls<CR>
 " :b1 :b2   :bf :bl
 nnoremap [b :bprevious<cr>
 nnoremap ]b :bnext<cr>
-noremap <left> :bp<CR>
-noremap <right> :bn<CR>
 
 
 " tab 操作
@@ -165,7 +167,7 @@ if has("gui_running")
 endif
 
 set background=dark
-colorscheme default
+colorscheme molokai
 set t_Co=256
 
 
