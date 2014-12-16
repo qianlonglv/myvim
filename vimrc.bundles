@@ -91,3 +91,5 @@ let g:ctrlp_funky_syntax_highlight = 1
 
 let g:ctrlp_extensions = ['funky']
 
+Bundle 'vim-scripts/cscope.vim'
+
