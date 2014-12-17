@@ -10,7 +10,7 @@ let g:mapleader = ','
 set number "开启行号
 syntax on "语法高亮
 
-set nocp
+set backspace=indent,eol,start
 set autoindent "自动缩进
 set smartindent   " Smart indent
 set tabstop=4 "tab 为4 
