@@ -171,4 +171,6 @@ set background=dark
 colorscheme molokai
 set t_Co=256
 
-
+"·ÀÖ¹ÂÒÂë
+let &termencoding=&encoding
+set fileencodings=utf-8,gbk,utf-16,big5
