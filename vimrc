@@ -1,10 +1,10 @@
+let mapleader = ','
+let g:mapleader = ','
 " install Vundle bundles
 if filereadable(expand("~/.vimrc.bundles"))
    source ~/.vimrc.bundles
 endif
 
-let mapleader = ','
-let g:mapleader = ','
 
 
 set number "¿ªÆôĞĞºÅ
