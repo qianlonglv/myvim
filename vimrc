@@ -25,10 +25,10 @@ set ruler "打开光标尺
 set clipboard+=unnamed   "和外界共享粘贴板内容
 set autowrite   "自动保存
 "set cursorline  "显示光标所在行
-set foldenable   "开启代码折叠
-set foldlevel=4   "折叠最大4层
-set foldmethod=indent  "折叠方式为缩进
-set foldcolumn=0
+"set foldenable   "开启代码折叠
+"set foldlevel=4   "折叠最大4层
+"set foldmethod=indent  "折叠方式为缩进
+"set foldcolumn=0
 set autoread          " 文件修改之后自动载
 
 "create undo file
@@ -66,19 +66,8 @@ autocmd! bufwritepost .vimrc source % " vimrc文件修改之后自动加载。 linux
 " "让Vim的补全菜单行为与一般IDE一致(参考VimTip1228)
 set completeopt=longest,menu
 
-"F2 开启/关闭行号
-function! HideNumber()
-    if(@relativenumber == &number)
-        set relativenumber! number
-    elseif(&number)
-        set number;
-    else
-        set relativenumber!
-    endif
-    set number?
-endfunc
-nnoremap <F2> :call HideNumber()<CR>
-nnoremap <F3> :set list! list?<CR>
+"nnoremap <F3> :set list! list?<CR>
+map <F3> :silent! Tlist<CR>
 nnoremap <F4> :set wrap! wrap?<CR>
 
 set pastetoggle=<F5>
@@ -110,46 +99,6 @@ nnoremap * #
 " 去掉搜索高亮
 noremap <silent><leader>/ :nohls<CR>
 
-" --------tab/buffer相关
-"Use arrow key to change buffer"
-" TODO: 如何跳转到确定的buffer?
-" :b1 :b2   :bf :bl
-nnoremap [b :bprevious<cr>
-nnoremap ]b :bnext<cr>
-
-
-" tab 操作
-" TODO: ctrl + n 变成切换tab的方法
-map <leader>th :tabfirst<cr>
-map <leader>tl :tablast<cr>
-map <leader>tj :tabnext<cr>
-map <leader>tk :tabprev<cr>
-map <leader>tn :tabnext<cr>
-map <leader>tp :tabprev<cr>
-map <leader>te :tabedit<cr>
-map <leader>td :tabclose<cr>
-map <leader>tm :tabm<cr>
-
-" 新建tab  Ctrl+t
-nnoremap <C-t>     :tabnew<CR>
-inoremap <C-t>     <Esc>:tabnew<CR>
-
-" normal模式下切换到确切的tab
-noremap <leader>1 1gt
-noremap <leader>2 2gt
-noremap <leader>3 3gt
-noremap <leader>4 4gt
-noremap <leader>5 5gt
-noremap <leader>6 6gt
-noremap <leader>7 7gt
-noremap <leader>8 8gt
-noremap <leader>9 9gt
-noremap <leader>0 :tablast<cr>
-let g:last_active_tab = 1
-nnoremap <silent> <leader>tt :execute 'tabnext ' . g:last_active_tab<cr>
-vnoremap <silent> <leader>tt :execute 'tabnext ' . g:last_active_tab<cr>
-autocmd TabLeave * let g:last_active_tab = tabpagenr()
-
 
 if has("gui_running")
     set guifont=Monaco:h14
@@ -168,9 +117,10 @@ if has("gui_running")
 endif
 
 set background=dark
-colorscheme molokai
+"set background=light
+colorscheme default
 set t_Co=256
 
 "防止乱码
-let &termencoding=&encoding
-set fileencodings=utf-8,gbk,utf-16,big5
+"let &termencoding=&encoding
+"set fileencodings=utf-8,gbk,utf-16,big5
