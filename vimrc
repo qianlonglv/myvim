@@ -21,7 +21,7 @@ set smarttab "智能tab
 set showmatch "显示自动匹配()[]
 set history=2000 "历史记忆
 set background=dark "背景色
-set ruler "打开光标尺
+"set ruler "打开光标尺
 set clipboard+=unnamed   "和外界共享粘贴板内容
 set autowrite   "自动保存
 "set cursorline  "显示光标所在行
@@ -66,6 +66,8 @@ autocmd! bufwritepost .vimrc source % " vimrc文件修改之后自动加载。 linux
 " "让Vim的补全菜单行为与一般IDE一致(参考VimTip1228)
 set completeopt=longest,menu
 
+"show line number
+nnoremap <F2> :set nonumber!<CR>:set foldcolumn=0<CR>
 "nnoremap <F3> :set list! list?<CR>
 map <F3> :silent! Tlist<CR>
 nnoremap <F4> :set wrap! wrap?<CR>
